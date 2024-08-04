@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
-import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import { tableCellClasses } from "@mui/material/TableCell";
+import {Card, TableHead,TableRow,TableCell ,styled ,TableBody ,Table} from "@mui/material";
 import DesBtn from "../Inputs/DesBtn";
 import AnalyticsOutlinedIcon from "@mui/icons-material/AnalyticsOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
@@ -44,8 +38,8 @@ export default function ReusableTable({ data }) {
   }, [data]);
 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: "min-content"  }} >
+    <Card sx={{p:2}}>
+      <Table sx={{ minWidth: "min-content" , borderRadius : 1 , overflow : "hidden"}} >
         <TableHead>
           <TableRow>
             {tableTitlesHeaderArr?.map((el) => (
@@ -77,6 +71,6 @@ export default function ReusableTable({ data }) {
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+    </Card>
   );
 }

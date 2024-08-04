@@ -1,6 +1,5 @@
-import { Box } from "@mui/material";
 import ReusableTable from "../Components/Reusable/ReusableTable";
-
+import { Button } from "@mui/material";
 const Jobs = () => {
   const jobDataRes = [
     { name: "job1", activation: "Active", lastRun: "1/12/2024" },
@@ -11,9 +10,10 @@ const Jobs = () => {
   ];
 
   return (
-    <Box sx={{ my: 5 }}>
+    <>
+      <Button sx={{mb : 3}} variant="contained"> add new job </Button>
       <ReusableTable data={jobDataRes} />
-    </Box>
+    </>
   );
 };
 
