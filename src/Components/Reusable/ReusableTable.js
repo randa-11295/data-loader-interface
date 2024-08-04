@@ -24,7 +24,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-export default function ReusableTable({ data }) {
+export default function ReusableTable({ data , editHandle}) {
   const [tableTitlesHeaderArr, setTableTitlesHeaderArr] = useState([]);
 
   useEffect(() => {
@@ -58,13 +58,13 @@ export default function ReusableTable({ data }) {
               ))}
               <StyledTableCell align="center" component="td" scope="row">
                 <DesBtn>
-                  <AnalyticsOutlinedIcon />
+                  <AnalyticsOutlinedIcon text={"Show"} />
                 </DesBtn>
-                <DesBtn>
+                <DesBtn fun={editHandle} text={"Edit"}>
                   <EditOutlinedIcon />
                 </DesBtn>
                 <DesBtn>
-                  <DeleteOutlineOutlinedIcon />
+                  <DeleteOutlineOutlinedIcon text={"Delete"} />
                 </DesBtn>
               </StyledTableCell>
             </StyledTableRow>

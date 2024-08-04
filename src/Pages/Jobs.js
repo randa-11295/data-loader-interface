@@ -20,7 +20,7 @@ const Jobs = () => {
       >
         add new job
       </Button>
-      <ReusableTable data={jobDataRes} />
+      <ReusableTable data={jobDataRes}  editHandle={() => navigate("/edit-job") }/>
     </>
   );
 };

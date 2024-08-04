@@ -9,6 +9,7 @@ import SummaryPage from "../Pages/Summary";
 import OutputPage from "../Pages/Output";
 import JobsPage from "../Pages/Jobs";
 import AddJobPage from "../Pages/AddJob";
+import EditJobPage from "../Pages/EditJob";
 
 export const AppRouter = () => {
 
@@ -22,6 +23,7 @@ export const AppRouter = () => {
           <Route path="/output" element={<OutputPage />} />
           <Route path="/jobs" element={<JobsPage />} />
           <Route path="/add-job" element={<AddJobPage />} />
+          <Route path="/edit-job" element={<EditJobPage />} />
 
           {/* <Route
             path="/Keys"
