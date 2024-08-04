@@ -18,8 +18,7 @@ const Jobs = () => {
         variant="contained"
         onClick={() => navigate("/add-job")}
       >
-        {" "}
-        add new job{" "}
+        add new job
       </Button>
       <ReusableTable data={jobDataRes} />
     </>
