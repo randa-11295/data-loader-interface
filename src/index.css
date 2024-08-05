@@ -8,6 +8,8 @@ body {
 html {
   scroll-behavior: smooth;
   background-color: #f6f8f9;
+  font-size: 19px;
+
 }
 
 * {
