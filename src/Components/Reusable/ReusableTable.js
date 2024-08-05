@@ -52,7 +52,7 @@ export default function ReusableTable({ data , editHandle}) {
           {data?.map((row) => (
             <StyledTableRow key={row.name}>
               {tableTitlesHeaderArr?.map((item) => (
-                <StyledTableCell align="center" component="td" scope="row">
+                <StyledTableCell key={row[item]} align="center" component="td" scope="row">
                   {row[item]}
                 </StyledTableCell>
               ))}

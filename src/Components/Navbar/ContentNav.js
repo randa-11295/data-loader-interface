@@ -134,12 +134,12 @@ const contentNavArr = [
 const SettingsNavArr =[
   
     {
-      url: "/Settings-connectors",
+      url: "/connector-setting",
       name: "Connectors",
       icon:(styleIcon)=>  <LanOutlinedIcon sx={styleIcon}/>,
     },
     {
-      url: "/Settings-global",
+      url: "/global-setting",
       name: "Global",
       icon: (styleIcon)=> <PublicOutlinedIcon sx={styleIcon}/>,
     },

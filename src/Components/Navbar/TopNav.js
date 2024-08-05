@@ -30,7 +30,7 @@ const TopNav = (props) => {
 
   useEffect(() => {
     const newRoute = location.pathname.replaceAll("-", " ").replaceAll("/", "");
-console.log(newRoute)
+
     if (newRoute) {
       setRoute(newRoute);
     } else {
