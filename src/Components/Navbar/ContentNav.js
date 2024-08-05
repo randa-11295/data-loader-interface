@@ -8,7 +8,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-
+import logo from "../../images/logo.png"
 const ContentNav = (props) => {
   let location = useLocation();
   let navigate = useNavigate();
@@ -74,12 +74,12 @@ const ContentNav = (props) => {
 export default ContentNav;
 
 const logoStyle = {
-  // backgroundImage: `url(${getStaticAssetURL("logo.png")})`,
+ backgroundImage: `url(${logo})`,
   backgroundSize: "contain",
   backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
-  backgroundColor: "#fff",
+  backgroundPosition: "left",
   cursor: "pointer",
+  my: 2
 };
 
 const boxStyle = {
