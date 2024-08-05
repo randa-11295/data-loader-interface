@@ -10,7 +10,6 @@ import {
   Stack,
 } from "@mui/material";
 import logo from "../../images/logo.png";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ReusableAccordion from "../Reusable/ReusableAccordion";
 import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
 import OutputOutlinedIcon from '@mui/icons-material/OutputOutlined';

@@ -29,15 +29,12 @@ const TopNav = (props) => {
   // }, [ApiUrl, token]);
 
   useEffect(() => {
-    const newRoute = location.pathname
-      .slice(1)
-      .split("/")[1]
-      ?.replaceAll("-", "");
-
+    const newRoute = location.pathname.replaceAll("-", " ").replaceAll("/", "");
+console.log(newRoute)
     if (newRoute) {
       setRoute(newRoute);
     } else {
-      setRoute("platform");
+      setRoute("Summary");
     }
   }, [location.pathname]);
 
