@@ -9,13 +9,9 @@ import {
   ListItemText,
 } from "@mui/material";
 
-
-
 const ContentNav = (props) => {
-
   let location = useLocation();
   let navigate = useNavigate();
-
 
   const changeRouteHandel = (url) => {
     props.mob && props.openHandel();
@@ -45,22 +41,25 @@ const ContentNav = (props) => {
       ></Toolbar>
 
       <List sx={{ pt: "1px" }}>
-        {["summary" , "output" , "jobs"].map((el) => (
+        {[
+          "summary",
+          "output",
+          "jobs",
+          "sitting Connectors ",
+          "sitting  global ",
+        ].map((el) => (
           <ListItem
             sx={listStyle(el.url, location.pathname)}
             key={el}
             disablePadding
             onClick={() => {
-              changeRouteHandel("/"+ el);
+              changeRouteHandel("/" + el);
             }}
           >
             <ListItemButton
               sx={{ justifyContent: "space-between", display: "flex" }}
             >
-              <ListItemText
-                primary={el}
-                sx={{ textAlign: "start" }}
-              />
+              <ListItemText primary={el} sx={{ textAlign: "start" }} />
               {/* <ListItemIcon sx={iconStyle(el.url, location.pathname)}>
                 {el.icon}
               </ListItemIcon> */}
