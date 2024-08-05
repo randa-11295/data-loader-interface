@@ -10,6 +10,8 @@ import OutputPage from "../Pages/Output";
 import JobsPage from "../Pages/Jobs";
 import AddJobPage from "../Pages/AddJob";
 import EditJobPage from "../Pages/EditJob";
+import ConnectorSettingPage from "../Pages/ConnectorSetting";
+import GlobalSettingPage from "../Pages/GlobalSetting";
 
 export const AppRouter = () => {
 
@@ -24,6 +26,8 @@ export const AppRouter = () => {
           <Route path="/jobs" element={<JobsPage />} />
           <Route path="/add-job" element={<AddJobPage />} />
           <Route path="/edit-job" element={<EditJobPage />} />
+          <Route path="/global-setting" element={<GlobalSettingPage />} />
+          <Route path="/connector-setting" element={<ConnectorSettingPage />} />
 
           {/* <Route
             path="/Keys"
