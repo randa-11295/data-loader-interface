@@ -12,7 +12,6 @@ const InputTextCustom = (props) => {
     )?.replace(".", "_") || " ";
 
   const styleInput = {
-    my: 1,
     " & .MuiOutlinedInput-root ": props.phone && {
       p: "0 ",
     },
@@ -29,6 +28,7 @@ const InputTextCustom = (props) => {
       </Typography>
       <TextField
         fullWidth
+        size="small"
         placeholder={props.label}
         value={props.formik?.values[props.name]}
         onChange={props.formik?.handleChange}

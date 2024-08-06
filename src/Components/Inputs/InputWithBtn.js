@@ -2,16 +2,13 @@ import {
   OutlinedInput,
   FormHelperText,
   FormControl,
-  InputLabel,
+  Typography,
   InputAdornment,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import DesBtn from "./DesBtn";
-import useContentHook from "../../hooks/useContentHook";
 
 export default function InputWithBtn(props) {
-  const { getContentText } = useContentHook();
-
   let isError =
     props.formik?.touched[props.name] &&
     Boolean(props.formik?.errors[props.name]);
@@ -23,20 +20,21 @@ export default function InputWithBtn(props) {
 
   return (
     <FormControl
-      component={props.search ? "form" : "div"}
       fullWidth
-      size={props.search ? "large" : "small"}
-      onSubmit={props.formik.handleSubmit}
-      sx={{ background: "white" }}
+      sx={{mb: 2}}
     >
-      <InputLabel htmlFor="outlined-adornment-amount">
-        {getContentText(props.label)}
-      </InputLabel>
+      <Typography
+        color="secondary"
+        variant="h6"
+        sx={{ fontSize: ".9rem", fontWeight: 600, textTransform: "capitalize" }}
+      >
+        {props.label} :
+      </Typography>
+
       <OutlinedInput
-        onKeyUp={(e) => {
-          e.code === "Enter" && props.formik.handleSubmit();
-        }}
-        sx={inputStyle}
+        sx={styleInput}
+        size="small"
+        placeholder={props.label}
         value={props.formik?.values[props.name]}
         onChange={props.formik?.handleChange}
         onBlur={props.formik?.handleBlur}
@@ -45,9 +43,8 @@ export default function InputWithBtn(props) {
         endAdornment={
           <InputAdornment position="end">
             <DesBtn
-              type="submit"
-              fun={props.formik.handleSubmit}
-              text={getContentText("popUp_send")}
+              fun={props.handleIcon}
+              text={props.iconText || ""}
               place="bottom"
               withoutStyle
             >
@@ -55,17 +52,15 @@ export default function InputWithBtn(props) {
             </DesBtn>
           </InputAdornment>
         }
-        label={getContentText(props.label)}
+       
       />
       {props.helpDes && (
-        <FormHelperText sx={{ color: "error.main" }}>
-          {getContentText(textHelp)}
-        </FormHelperText>
+        <FormHelperText sx={{ color: "error.main" }}>{textHelp}</FormHelperText>
       )}
     </FormControl>
   );
 }
 
-const inputStyle = {
-  fontSize: { xs: ".7rem", sm: ".9rem", md: ".8rem", lg: "1rem" },
+const styleInput = {
+  mb: 1,
 };
