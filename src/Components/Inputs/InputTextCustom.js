@@ -40,6 +40,7 @@ const InputTextCustom = (props) => {
         sx={styleInput}
         multiline={props.multi || false}
         minRows={6}
+        disabled={props.disabled}
         
       />
     </div>

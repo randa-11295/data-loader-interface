@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const EditJob = () => {
+const EditJob = (props) => {
   const { id } = useParams();
 
   const formik = useFormik({
@@ -38,12 +38,12 @@ const EditJob = () => {
 
   return (
     <Card component="form" sx={{ p: 2 }} onSubmit={formik.handleSubmit}>
-      <InputTextCustom name="id" label="id" formik={formik} />
-      <InputTextCustom name="job_name" label="job name" formik={formik} />
-      <InputTextCustom name="server_name" label="server name" formik={formik} />
+      <InputTextCustom disabled={props.isShow} name="id" label="id" formik={formik} />
+      <InputTextCustom disabled={props.isShow} name="job_name" label="job name" formik={formik} />
+      <InputTextCustom disabled={props.isShow} name="server_name" label="server name" formik={formik} />
       {/* <InputTextCustom name="server_name" label="server_name" formik={formik} /> */}
 
-      <Stack justifyContent="flex-end" direction="row">
+    {  !props.isShow &&  <Stack justifyContent="flex-end" direction="row">
         <Button variant="outlined" onClick={formik.handleReset} sx={{ mx: 2 }}>
           clear
         </Button>
@@ -55,7 +55,7 @@ const EditJob = () => {
           Edit
         </Button>
         {/* <LoadBtn loading={loading} /> */}
-      </Stack>
+      </Stack>}
     </Card>
   );
 };

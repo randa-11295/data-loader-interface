@@ -26,6 +26,7 @@ export const AppRouter = () => {
           <Route path="/jobs" element={<JobsPage />} />
           <Route path="/add-job" element={<AddJobPage />} />
           <Route path="/edit-job/:id" element={<EditJobPage />} />
+          <Route path="/show-job/:id" element={<EditJobPage isShow />} />
           <Route path="/global-setting" element={<GlobalSettingPage />} />
           <Route path="/connector-setting" element={<ConnectorSettingPage />} />
 

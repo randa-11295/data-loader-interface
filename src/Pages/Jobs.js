@@ -59,6 +59,7 @@ const Jobs = ({ recordId }) => {
         data={record}
         deleteHandle={deleteHandle}
         editHandle={(id) => navigate("/edit-job/" + id)}
+        showHandle={(id) => navigate("/show-job/" + id)}
       />
     </>
   );
