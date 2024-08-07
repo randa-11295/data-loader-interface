@@ -1,15 +1,50 @@
 import ReusableTable from "../Components/Reusable/ReusableTable";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-const Jobs = () => {
+import axios from "axios";
+
+import { useState, useEffect } from "react";
+
+const Jobs = ({ recordId }) => {
+  const [record, setRecord] = useState(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
+
+  // useEffect(() => {
+  //   console.log("record", record);
+  //   console.log("loading", loading);
+  //   console.log("error", error);
+  // }, [error, loading, record]);
+
+  const getAllJobsHandle = () => {
+    axios
+      .get("http://127.0.0.1:8090/api/collections/jobs/records")
+      .then((res) => setRecord(res.data.items))
+      .catch((err) => console.log(err));
+  };
+  useEffect(() => {
+    getAllJobsHandle();
+  }, []);
+
+  // useEffect(() => {
+  //   axios
+  //     // .delete("http://127.0.0.1:8090/api/collections/jobs/records/rs2ultvn2sw53pp")
+  //     // .get("http://127.0.0.1:8090/api/collections/jobs/records/rs2ultvn2sw53pp")
+  //     // .patch("http://127.0.0.1:8090/api/collections/jobs/records/rs2ultvn2sw53pp")
+  //     // .POST("http://127.0.0.1:8090/api/collections/jobs/records")
+  //     .then((res) => console.log(res.data))
+  //     .catch((err) => console.log(err));
+  // }, []);
+
+  const deleteHandle = (id) => {
+    console.log(id);
+
+    axios
+      .delete("http://127.0.0.1:8090/api/collections/jobs/records/" + id)
+      .then(() => getAllJobsHandle())
+      .catch((err) => console.log(err));
+  };
   const navigate = useNavigate();
-  const jobDataRes = [
-    { name: "job1", activation: "Active", lastRun: "1/12/2024" },
-    { name: "job2", activation: "not Active", lastRun: "1/12/2024" },
-    { name: "job3", activation: "pending ", lastRun: "1/12/2024" },
-    { name: "job4", activation: "Active", lastRun: "1/12/2024" },
-    { name: "job5", activation: "Active", lastRun: "1/12/2024" },
-  ];
 
   return (
     <>
@@ -20,7 +55,11 @@ const Jobs = () => {
       >
         add new job
       </Button>
-      <ReusableTable data={jobDataRes}  editHandle={() => navigate("/edit-job") }/>
+      <ReusableTable
+        data={record}
+        deleteHandle={deleteHandle}
+        editHandle={() => navigate("/edit-job")}
+      />
     </>
   );
 };

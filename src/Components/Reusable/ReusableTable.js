@@ -5,6 +5,7 @@ import DesBtn from "../Inputs/DesBtn";
 import AnalyticsOutlinedIcon from "@mui/icons-material/AnalyticsOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import { v4 as uuidv4 } from 'uuid';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -24,18 +25,18 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-export default function ReusableTable({ data , editHandle}) {
+export default function ReusableTable(props) {
   const [tableTitlesHeaderArr, setTableTitlesHeaderArr] = useState([]);
 
   useEffect(() => {
     let titleTableData = [];
-    if (data && data[1]) {
-      for (const property in data[1]) {
+    if (props.data && props.data[1]) {
+      for (const property in props.data[1]) {
         titleTableData.push(property);
       }
     }
     setTableTitlesHeaderArr(titleTableData);
-  }, [data]);
+  }, [props.data]);
 
   return (
     <Card sx={{p:2}}>
@@ -43,16 +44,16 @@ export default function ReusableTable({ data , editHandle}) {
         <TableHead>
           <TableRow>
             {tableTitlesHeaderArr?.map((el) => (
-              <StyledTableCell align="center" key={el}>{el}</StyledTableCell>
+              <StyledTableCell align="center" key={uuidv4()}>{el}</StyledTableCell>
             ))}
             <StyledTableCell align="center">control</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {data?.map((row) => (
-            <StyledTableRow key={row.name}>
+          {props.data?.map((row) => (
+            <StyledTableRow key={uuidv4()}>
               {tableTitlesHeaderArr?.map((item) => (
-                <StyledTableCell key={row[item]} align="center" component="td" scope="row">
+                <StyledTableCell key={uuidv4() } align="center" component="td" scope="row">
                   {row[item]}
                 </StyledTableCell>
               ))}
@@ -60,11 +61,11 @@ export default function ReusableTable({ data , editHandle}) {
                 <DesBtn>
                   <AnalyticsOutlinedIcon text={"Show"} />
                 </DesBtn>
-                <DesBtn fun={editHandle} text={"Edit"}>
+                <DesBtn fun={()=>props.editHandle(row.id)} text={"Edit"}>
                   <EditOutlinedIcon />
                 </DesBtn>
-                <DesBtn>
-                  <DeleteOutlineOutlinedIcon text={"Delete"} />
+                <DesBtn fun={()=>props.deleteHandle(row.id)}>
+                  <DeleteOutlineOutlinedIcon   text={"Delete"} />
                 </DesBtn>
               </StyledTableCell>
             </StyledTableRow>
