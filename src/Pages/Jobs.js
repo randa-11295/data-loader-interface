@@ -37,7 +37,7 @@ const Jobs = ({ recordId }) => {
   // }, []);
 
   const deleteHandle = (id) => {
-    console.log(id);
+ 
 
     axios
       .delete("http://127.0.0.1:8090/api/collections/jobs/records/" + id)
@@ -58,7 +58,7 @@ const Jobs = ({ recordId }) => {
       <ReusableTable
         data={record}
         deleteHandle={deleteHandle}
-        editHandle={() => navigate("/edit-job")}
+        editHandle={(id) => navigate("/edit-job/" + id)}
       />
     </>
   );
