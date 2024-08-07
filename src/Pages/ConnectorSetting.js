@@ -7,11 +7,11 @@ import { useFormik } from "formik";
 const ConnectorSetting = () => {
   const formik = useFormik({
     initialValues: {
-        last_status_date: "",
-        last_status: "",
-        destination: "",
-        source: "",
-        logs: "",
+      last_status_date: "",
+      last_status: "",
+      destination: "",
+      source: "",
+      logs: "",
     },
     // validationSchema: logInSchema,
     onSubmit: (values) => {
@@ -20,12 +20,44 @@ const ConnectorSetting = () => {
   });
 
   return (
-    <Card component="form" sx={{ p: 2 }} onSubmit={formik.handleSubmit}>
-      <InputTextCustom name="source" label="Source" formik={formik} />
-      <InputWithBtn name="destination" label="Destination" formik={formik} />
-      <InputTextCustom name="destination" label="Destination" formik={formik} />
-      <InputTextCustom name="last_status" label="Last Status" formik={formik} />
-    
+    <div>
+      <Card component="form" sx={{ p: 2 }} onSubmit={formik.handleSubmit}>
+        <InputTextCustom
+          name="destination"
+          label="Destination"
+          formik={formik}
+        />
+      </Card>
+
+      <Card component="form" sx={{ p: 2 }} onSubmit={formik.handleSubmit}>
+        <InputTextCustom name="source" label="Source" formik={formik} />
+        <InputWithBtn name="destination" label="Destination" formik={formik} />
+        <InputTextCustom
+          name="destination"
+          label="Destination"
+          formik={formik}
+        />
+        <InputTextCustom
+          name="last_status"
+          label="Last Status"
+          formik={formik}
+        />
+      </Card>
+
+      <Card component="form" sx={{ p: 2 }} onSubmit={formik.handleSubmit}>
+        <InputTextCustom name="source" label="Source" formik={formik} />
+        <InputWithBtn name="destination" label="Destination" formik={formik} />
+        <InputTextCustom
+          name="destination"
+          label="Destination"
+          formik={formik}
+        />
+        <InputTextCustom
+          name="last_status"
+          label="Last Status"
+          formik={formik}
+        />
+      </Card>
       <Stack justifyContent="flex-end" direction="row">
         <Button
           variant="outlined"
@@ -44,7 +76,7 @@ const ConnectorSetting = () => {
         </Button>
         {/* <LoadBtn loading={loading} /> */}
       </Stack>
-    </Card>
+    </div>
   );
 };
 
