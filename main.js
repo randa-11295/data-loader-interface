@@ -12,9 +12,9 @@ function createWindow() {
     },
   });
 
-//   win.loadURL('http://localhost:3000'); // Points to the React app in development mode
+  win.loadURL('http://localhost:3000'); // Points to the React app in development mode
   // Uncomment for production
-  win.loadFile('build/index.html');
+  // win.loadFile('public/index.html');
 }
 
 app.whenReady().then(() => {
